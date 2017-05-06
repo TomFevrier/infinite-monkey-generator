@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'Typewriter';
+    src: url('Tox Typewriter.ttf');
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(#F7F7F7, #DEDEDE);
+    font-family: 'Typewriter';
+    overflow-x: hidden;
+}
+
+#monkey img {
+    width: 15%;
+    margin: 0 auto;
+    border-radius: 2%;
+}
+
+h1 {
+    text-align: center;
+    font-size: 5em;
+}
+
+#text {
+    width: 25%;
+    border: 2px dashed black;
+    background-color: inherit;
+    font-size: 1.5em;
+    font-family: inherit;
+    text-align: center;
+    resize: none;
+}
+
+#text:focus {
+    outline: none;
+}
+
+p {
+    text-align: center;
+}
+
+#button {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-top: 0;
+    cursor: pointer;
+}
+
+#best-phrase {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#all-phrases {
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#generation {
+    font-size: 1.5em;
+    font-weight: bold;
+}
