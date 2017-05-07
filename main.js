@@ -2,13 +2,9 @@ var target;
 var mutationRate;
 var popSize;
 var population;
+var populationTitle;
 var intervalId;
-
-var target;
-var mutationRate;
-var popSize;
-var population;
-var intervalId;
+var intervalTitleId;
 
 document.getElementById('title').addEventListener('mouseover', setupTitle);
 
@@ -22,26 +18,22 @@ document.getElementById('button').addEventListener('click', setup);
 
 
 function setupTitle() {
-    target = "Infinite Monkey Generator";
-    mutationRate = 0.01;
-    popSize = 1000;
-    population = new Population(target, mutationRate, popSize);
-
+    populationTitle = new Population("Infinite Monkey Generator", 0.01, 1000);
     intervalTitleId = setInterval(drawTitle, 50);
 }
 
 function drawTitle() {
-    population.calcFitness();
-    population.naturalSelection();
-    population.evaluate();
-    population.generate();
+    populationTitle.calcFitness();
+    populationTitle.naturalSelection();
+    populationTitle.evaluate();
+    populationTitle.generate();
 
-    if (population.isFinished()) {
+    if (populationTitle.isFinished()) {
         clearInterval(intervalTitleId);
     }
 
     var title = document.getElementById('title');
-    title.innerHTML = population.getBestPhrase();
+    title.innerHTML = populationTitle.getBestPhrase();
 }
 
 
@@ -57,7 +49,7 @@ function setup() {
         allPhrases.innerHTML += "<p class='phrases'></p>";
     }
 
-    intervalId = setInterval(draw, 20);
+    intervalId = setInterval(draw, 10);
 }
 
 function draw() {
