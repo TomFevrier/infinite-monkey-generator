@@ -4,7 +4,46 @@ var popSize;
 var population;
 var intervalId;
 
+var target;
+var mutationRate;
+var popSize;
+var population;
+var intervalId;
+
+document.getElementById('title').addEventListener('mouseover', setupTitle);
+
+document.getElementById('title').addEventListener('mouseout', function() {
+    clearInterval(intervalTitleId);
+    var title = document.getElementById('title');
+    title.innerHTML = "Infinite Monkey Generator";
+});
+
 document.getElementById('button').addEventListener('click', setup);
+
+
+function setupTitle() {
+    target = "Infinite Monkey Generator";
+    mutationRate = 0.01;
+    popSize = 1000;
+    population = new Population(target, mutationRate, popSize);
+
+    intervalTitleId = setInterval(drawTitle, 50);
+}
+
+function drawTitle() {
+    population.calcFitness();
+    population.naturalSelection();
+    population.evaluate();
+    population.generate();
+
+    if (population.isFinished()) {
+        clearInterval(intervalTitleId);
+    }
+
+    var title = document.getElementById('title');
+    title.innerHTML = population.getBestPhrase();
+}
+
 
 function setup() {
     target = document.getElementById('text').value;
