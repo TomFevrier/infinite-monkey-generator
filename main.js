@@ -57,7 +57,7 @@ function setup() {
         allPhrases.innerHTML += "<p class='phrases'></p>";
     }
 
-    intervalId = setInterval(draw, 10);
+    intervalId = setInterval(draw, 20);
 }
 
 function draw() {
